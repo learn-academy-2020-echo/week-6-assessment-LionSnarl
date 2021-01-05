@@ -9,31 +9,63 @@ var people = [
   { name: "arthur dent", occupation: "radio employee" }
 ]
 // Expected output example: "Ford Prefect is a hitchhiker." "Zaphod Beeblebrox is a president of the galaxy." "Arthus Dent is a radio employee."
-// var re = /(\b[a-z](?!\s))/g
-// var s = namemap.replace(re, function(x){return x.toUpperCase()})
-// console.log();
 
+//alejando
+const nameFinder = (array) => {
+  let name = array.map(value => value.name)
+  //console.log(name);
+  let nameSplit = name.map(value => value.split(" "))
+  //console.log(nameSplit);
+  let capitalizer = nameSplit.map(value => value.map(value => value[0].toUpperCase() + value.slice(1, value.length)))
+  let joinNames = capitalizer.map(value => value.join(""))
+  let occupation = array.map(value => value.occupation)
+  let nameOccupation = []
+  for(let i=0; i<array.length; i++){
+    nameOccupation.push(`${joinNames[i]} is a ${occupation[i]}`)
+  }
+  return nameOccupation.join("")
+}
+
+console.log(nameFinder(people));
+
+//filippo
+const sentCap = (array) => {
+  let describe = array.map(value => {
+    let namesCap = value.name.split(" ").map(value => value.charAt(0).toUpperCase() + value.slice(1)).join(" ")
+    return `${namesCap} is a ${value.occupation}`
+  })
+  return describe
+}
+console.log(sentCap(people));
+
+// console.log();
 // const persons = (array) => {
 //   let re = /(\b[a-z](?!\s))/g
-//   let namemap = people.map(value => value.name.join(" ").replace(re, function(x){return x.toUpperCase()}))
-//   // let s = namemap.replace(re, function(x){return x.toUpperCase()})
-//   // return s
-//   return namemap
+//   let nameMap = array.map(value => value.name.replace(re, function(alpha){return alpha.toUpperCase()}))
+//   console.log(nameMap);
+//   let occupations = people.map(value => value.occupation )
+// console.log(occupations);
+//   return nameMap
 // }
 // console.log(persons(people));
 
-const persons = (array) => {
-  let namemap = people.map(value => value.name)
-  let re = /(\b[a-z](?!\s))/g
-  // let s = namemap.replace(re, function(x){return x.toUpperCase()})
-  // return s
-  return namemap.join(" ").replace(re, function(x){return x.toUpperCase()})
-}
-console.log(persons(people));
+// console.log(people[0].occupation)
+// const person = (array) => {
+//   let namemap = people.map(value => value.name)
+//   let re = /(\b[a-z](?!\s))/g
+//   // let s = namemap.replace(re, function(x){return x.toUpperCase()})
+//   // return s
+//   console.log(namemap);
+//   console.log(re);
+//   return namemap.join(" ").replace(re, function(x){return x.toUpperCase()})
+// }
+// console.log(person(people));
 
 // '${name} is a ${occupation}.'
 
 // V-Brain Storm-V
+// .map on key pair name and @ Index of 0 .UpperCase
+// return through string interpulation key value pairs
 // array of key value pairs
 // destructure people
 //var persons = people.filter(value => value )
@@ -42,19 +74,18 @@ console.log(persons(people));
 //console.log(people[0]);
 //console.log(people[0].name);
 //$ford prefect
-
 //console.log(people[0].occupation);
 //$hitchhiker
+// var re = /(\b[a-z](?!\s))/g
+// var s = namemap.replace(re, function(x){return x.toUpperCase()})
+// console.log();
 
-/*const nameCapilizer = (array) => {
-  let names = people.name
+// const nameCapilizer = (array) => {
+//   let names = people.name
   
-}
+// }
 
-*/
-// .map on key pair name and @ Index of 0 .UpperCase
 
-// return through string interpulation key value pairs
 
 
 
@@ -69,10 +100,17 @@ var testingArray2 = [5, "Hola", 43, -34, "greetings", true]
 //console log [ 23, 45, -9, 0 ] & [ 5, 43, -34 ]
 // return a .map over the local variable for the remainder of 3 (aka % 3)
 //console log [ 2, 0, -0, 0 ] & [ 2, 1, -1 ]
+
 const numRemainder = (array) => {
   let numFilter = array.filter(Number.isFinite)
   return numFilter.map(value => value % 3)
 }
+
+//refactored to fit one line below!
+const numRemainder2 = (array) => {
+  return array.filter(Number.isFinite).map(value => value % 3)
+}
+console.log(numRemainder2(testingArray1));
 //console.log(numRemainder(testingArray1));
 // Expected output: [ 2, 0, -0, 0 ]
 //console.log(numRemainder(testingArray2));
@@ -96,9 +134,9 @@ var testingArray4 = [7, "hi", 3, 1, "hi", 4, "hello", 4, 7]
 const noDuplicates = (array1, array2) => {
   let concat = array1.concat(array2)
   let set = new Set(concat)
-  return result = [...set]
+  return [...set]
 }
-//console.log(noDuplicates(testingArray3, testingArray4));
+console.log(noDuplicates(testingArray3, testingArray4));
 // Expected output: [ 3, 7, "hi", 10, "hello", 4, 1 ]
 
 

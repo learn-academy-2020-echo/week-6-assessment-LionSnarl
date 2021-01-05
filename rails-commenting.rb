@@ -58,7 +58,7 @@ class BlogPostsController < ApplicationController
     end
   end
 
-  # 8) To keep only authorized users from accessing the abilities below the word private. It allows there to be no chance the methods below cannot be called somewhere else in the program
+  # 8) ONLY USED IN THIS CLASS To keep only authorized users from accessing the abilities below the word private. It allows there to be no chance the methods below cannot be called somewhere else in the program
   private
   def blog_post_params
     # 9) This is allowing a blog post to be permitted to post if it follows the parameters of a blog post, which are a title and content.
@@ -71,6 +71,6 @@ end
 # FILE: app/models/blog_post.rb
 
 class BlogPost < ApplicationRecord
-  # 10) This allows you to view :comments visibly on the webpage. Creates a has_many relationship between BlogPost and ApplicationRecord so each BlogPost can contain comments 
+  # 10) Defines relationship between blog post and comments. This allows you to view :comments visibly on the webpage. Creates a has_many relationship between BlogPost and ApplicationRecord so each BlogPost can contain comments 
   has_many :comments
 end

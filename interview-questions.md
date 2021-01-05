@@ -17,7 +17,7 @@ Then, research the question to expand on your answer. Even if you feel you have 
 
   Your answer: Update, Delete, and... Show. I sorta cheated and looked for the last one in my written notes, but these are the specific RESTful routes that need some sort of :id aka params.
 
-  Researched answer: Update, Delete, Show, and Edit would all need to be passed Params because they need to identify exactly what instance variable they are trying to do something to.
+  Researched answer: Update, Destroy, Show, and Create would all need to be passed Params because they need to identify exactly what instance variable they are trying to do something to.
 
 
 
@@ -25,7 +25,7 @@ Then, research the question to expand on your answer. Even if you feel you have 
 
   Your answer: At first, I was writing RESTful routes, however, Rails generator commands in the terminal: 
 
-  rails generate model: Generates a database and corresponding files to create a model we can use CRUD actions on.
+  rails generate model: Generates a model to be filled with a database and corresponding files to create a model we can use CRUD actions on.
 
   rails generate controller: Generates all files needed to start creating all the methods needed by the View to call upon.
 
@@ -43,19 +43,19 @@ Then, research the question to expand on your answer. Even if you feel you have 
 
 4. Consider the Rails routes below. What is the name of the controller method that would be called by each route? What action would each of the controller methods perform?
 
-method="GET"    /users        user#index | Displays all users, with all ids
+method="GET"    /users       index | Displays all users, with all ids
 
-method="GET"    /users/1      user#show | Displays a single user, with id 1
+method="GET"    /users/1      show | Displays a single user, with id 1
 
-method="GET"    /users/new    user#new | Generates a proposed new user into database
+method="GET"    /users/new    new | Displays a forum for a proposed new user into database
 
-method="GET"    /users/edit/1   user#edit | Ability to change/edit user id 1
+method="GET"    /users/edit/1   edit | Ability to change/edit user id 1
 
-method="POST"   /users/       user#create | Generates a new user into database
+method="POST"   /users/       create | Generates a new user into database
 
-method="PUT"    /users/1      user#update | Generates an edit to existing user id 1
+method="PUT"    /users/1      update | Generates an edit to existing user id 1
 
-method="DELETE" /users/1      user#destroy | Deletes user id 1
+method="DELETE" /users/1      destroy | Deletes user id 1
 
 
 
